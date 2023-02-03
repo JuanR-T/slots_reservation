@@ -25,8 +25,15 @@ func initHandlers() {
 	router.HandleFunc("/api/user/create", controller.CreateUser).Methods("POST")
 	router.HandleFunc("/api/user/update", controller.UpdateUser).Methods("PUT")
 	router.HandleFunc("/api/user/delete/{id}", controller.DeleteUser).Methods("DELETE")
-}
 
+	// Router for professionals  test
+	router.HandleFunc("/api/professionals", controller.GetAllProfessionals).Methods("GET")
+	router.HandleFunc("/api/professional/{id}", controller.GetProfessional).Methods("GET")
+	router.HandleFunc("/api/professional/create", controller.CreateProfessional).Methods("POST")
+	router.HandleFunc("/api/professional/update", controller.UpdateProfessional).Methods("PUT")
+	router.HandleFunc("/api/professional/delete/{id}", controller.DeleteProfessional).Methods("DELETE")
+
+}
 func Start() {
 	router = mux.NewRouter()
 

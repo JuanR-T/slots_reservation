@@ -58,6 +58,7 @@ create table if not exists timetable (
      REFERENCES slots(idSlot) ON DELETE CASCADE
 );
 
+
 create table if not exists professionals (
      idProfessional serial not null unique primary key,
      idUser integer,
@@ -70,3 +71,8 @@ create table if not exists professionals (
      CONSTRAINT fk_timetable FOREIGN KEY(idTimetable)
      REFERENCES timetable(idTimetable) ON DELETE CASCADE
 );
+
+insert into professionals(idUser, idTimetable, name, address, service)
+values
+    ('1', '6', 'Cergy on hair', '26 rue des champs', 'coiffure'),
+    ('2', '8', 'Coiffeur', '31 avenue des bricoleur', 'coiffure')
